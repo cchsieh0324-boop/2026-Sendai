@@ -3,191 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jack's 2026 Sendai - 櫻花與溫泉之盛典</title>
+    <title>Jack's 2026 Sendai - Ultimate Travel Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
+        :root { --sakura: #fdf2f8; --sky: #f0f9ff; --onsen: #fff7ed; }
+        body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; background-color: #f8fafc; }
         .serif { font-family: 'Noto Serif TC', serif; }
-        .day-card:hover { border-color: #f472b6; }
-        .sticky-nav::-webkit-scrollbar { display: none; }
-        .weather-gradient { background: linear-gradient(to right, #e0f2fe, #fef2f2); }
+        .timeline-item { position: relative; padding-left: 2.5rem; border-left: 2px solid #e2e8f0; padding-bottom: 1.5rem; }
+        .timeline-item::before { content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 4px solid #f472b6; }
+        .day-active { border-color: #f472b6; background-color: white; }
+        .nav-item:hover { color: #f472b6; transform: scale(1.05); transition: all 0.2s; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-800">
+<body class="text-slate-800">
 
-    <header class="relative h-[40vh] bg-cover bg-center flex items-center justify-center text-white" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop');">
-        <div class="text-center">
-            <h1 class="serif text-5xl md:text-7xl mb-4 tracking-tighter">2026 仙台宮城</h1>
-            <p class="text-xl opacity-90 tracking-widest uppercase">Cherry Blossom & Onsen Itinerary</p>
-            <div class="mt-8 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full inline-block">
-                <i class="fas fa-plane-departure mr-2"></i> JX862 | 04.04 - 04.12
+    <header class="relative bg-slate-900 text-white py-16 px-4 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+        <div class="max-w-6xl mx-auto relative z-10 text-center">
+            <p class="text-pink-400 font-bold tracking-[0.3em] mb-2">2026 CHERRY BLOSSOM TOUR</p>
+            <h1 class="serif text-5xl md:text-7xl font-bold mb-6">仙台．宮城最終極指南</h1>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <span class="bg-white/10 px-4 py-2 rounded-full border border-white/20"><i class="fas fa-plane mr-2"></i>JX862 | 04.04 11:35</span>
+                <span class="bg-pink-500/20 px-4 py-2 rounded-full border border-pink-500/30"><i class="fas fa-calendar-alt mr-2"></i>9 Days / 8 Nights</span>
+                <span class="bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30"><i class="fas fa-user-friends mr-2"></i>Jack's Family</span>
             </div>
         </div>
     </header>
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200 overflow-x-auto sticky-nav">
-        <div class="max-w-screen-xl mx-auto flex whitespace-nowrap px-4 py-3 space-x-6 text-sm font-bold">
-            <a href="#D1" class="text-pink-600">4/4 抵達</a>
-            <a href="#D2" class="text-slate-500">4/5 觀音</a>
-            <a href="#D3" class="text-slate-500">4/6 櫻岡</a>
-            <a href="#D4" class="text-slate-500">4/7 仔虎</a>
-            <a href="#D5" class="text-pink-600">4/8 千本櫻</a>
-            <a href="#D6" class="text-slate-500">4/9 松島</a>
-            <a href="#D7" class="text-orange-600">4/10 狐狸村</a>
-            <a href="#D8" class="text-blue-600">4/11 秋保</a>
-            <a href="#Shopping" class="bg-slate-100 px-3 py-1 rounded">購物地圖</a>
-        </div>
+    <nav class="hidden lg:block fixed left-6 top-1/2 -translate-y-1/2 z-50 space-y-2 text-xs font-bold text-slate-400">
+        <a href="#D1" class="nav-item block rotate-90 origin-left py-4">APR 04</a>
+        <a href="#D2" class="nav-item block rotate-90 origin-left py-4">APR 05</a>
+        <a href="#D3" class="nav-item block rotate-90 origin-left py-4">APR 06</a>
+        <a href="#D4" class="nav-item block rotate-90 origin-left py-4">APR 07</a>
+        <a href="#D5" class="nav-item block rotate-90 origin-left py-4">APR 08</a>
+        <a href="#D6" class="nav-item block rotate-90 origin-left py-4">APR 09</a>
+        <a href="#D7" class="nav-item block rotate-90 origin-left py-4 text-orange-400">APR 10</a>
+        <a href="#D8" class="nav-item block rotate-90 origin-left py-4 text-blue-500">APR 11</a>
     </nav>
 
-    <main class="max-w-5xl mx-auto px-4 py-12 space-y-20">
+    <main class="max-w-6xl mx-auto px-4 py-12">
 
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
-                <h3 class="text-indigo-400 text-xs font-black mb-2 uppercase tracking-widest">STARLUX AIRLINES</h3>
-                <div class="flex justify-between items-end">
+        <div class="space-y-16">
+
+            <section id="D1" class="day-active p-8 rounded-[2rem] border-2 shadow-xl">
+                <div class="flex flex-col md:flex-row justify-between items-start mb-8 border-b pb-6">
                     <div>
-                        <p class="text-3xl font-bold">TPE</p>
-                        <p class="text-xs opacity-60">11:35 出發</p>
+                        <h2 class="text-4xl font-black text-slate-800">Day 1 <span class="text-xl font-normal text-slate-400 ml-2">4/4 (Sat)</span></h2>
+                        <p class="text-pink-500 font-bold mt-1">「牛舌之夜」- 抵達日本東北玄關</p>
                     </div>
-                    <div class="text-center pb-2">
-                        <i class="fas fa-plane text-2xl"></i>
-                        <p class="text-[10px] mt-1">JX862</p>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-3xl font-bold">SDJ</p>
-                        <p class="text-xs opacity-60">16:00 到達</p>
+                    <div class="mt-4 md:mt-0 text-right">
+                        <div class="flex items-center text-2xl font-bold text-blue-600 justify-end"><i class="fas fa-cloud-sun mr-2 text-orange-400"></i> 6° / 13°</div>
+                        <p class="text-xs text-slate-500 mt-1">穿搭：防風外套 + 薄發熱衣</p>
                     </div>
                 </div>
-            </div>
-            <div class="weather-gradient p-8 rounded-3xl border border-blue-100 flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-slate-700">仙台預報 (4月上旬)</h3>
-                    <p class="text-4xl font-black text-slate-800">5°C - 14°C</p>
-                    <p class="text-sm text-slate-500 mt-2">建議：洋蔥式穿法，晚間需厚外套。</p>
-                </div>
-                <i class="fas fa-cloud-sun text-5xl text-orange-400"></i>
-            </div>
-        </section>
-
-        <div class="space-y-12">
-            
-            <section id="D1" class="day-card bg-white p-8 rounded-3xl border border-gray-100 shadow-sm transition-all">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-32">
-                        <span class="text-5xl font-black text-slate-200">04</span>
-                        <p class="font-bold text-slate-400">SAT / APR</p>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <span class="font-bold text-slate-900">11:35 - 16:00</span>
+                            <p class="text-sm text-slate-600 font-medium">星宇航空 JX862 (TPE ➔ SDJ)</p>
+                            <p class="text-xs text-slate-400 mt-1">桃園 T1 出發，預計下午 4 點降落仙台空港。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="font-bold text-slate-900">17:00 - 18:00</span>
+                            <p class="text-sm text-slate-600 font-medium">入關與交通</p>
+                            <p class="text-xs text-slate-400 mt-1">搭乘仙台機場 Access 線前往仙台站 (約 25min)。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="font-bold text-slate-900">19:00 - 21:00</span>
+                            <p class="text-sm text-slate-600 font-medium">四大牛舌名店挑戰</p>
+                            <p class="text-xs text-slate-400 mt-1">推薦「善治郎」或「利久」。(檔案備註：善治郎僅宮城縣有)。</p>
+                        </div>
                     </div>
-                    <div class="flex-1 space-y-6">
-                        <h2 class="text-2xl font-bold flex items-center">抵達仙台與牛舌首戰 <span class="ml-4 text-sm font-normal text-slate-400">5-12°C ☁️</span></h2>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="bg-slate-100 px-2 py-1 rounded text-xs mt-1 mr-4">16:00</span>
-                                <div><p class="font-bold">仙台空港降落</p><p class="text-sm text-slate-500">預計 17:00 出關，搭乘仙台機場 Access 線前往市區。</p></div>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="bg-pink-100 text-pink-700 px-2 py-1 rounded text-xs mt-1 mr-4">Dinner</span>
-                                <div><p class="font-bold underline decoration-pink-300">四大牛舌名店挑戰</p><p class="text-sm text-slate-500">推薦：善治郎（宮城限定）或利久牛舌。位於仙台站 3F 牛舌街或本館。</p></div>
-                            </li>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h4 class="font-bold mb-4 flex items-center text-indigo-600"><i class="fas fa-info-circle mr-2"></i> 專家貼士</h4>
+                        <ul class="text-xs space-y-3 leading-relaxed text-slate-600">
+                            <li>● 仙台站 3 樓有「牛舌通」，若排隊太長可去 1 樓或東口分店。</li>
+                            <li>● 飯店 Check-in：Hotel Keihan Sendai。</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <section id="D5" class="day-card bg-pink-50/50 p-8 rounded-3xl border border-pink-100 shadow-sm">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-32 text-pink-500">
-                        <span class="text-5xl font-black">08</span>
-                        <p class="font-bold">WED / APR</p>
+            <section id="D2" class="p-8 bg-white rounded-[2rem] border shadow-md">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-slate-800">Day 2 <span class="text-xl font-normal text-slate-400 ml-2">4/5 (Sun)</span></h2>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold text-slate-700">5° / 14° 🌤️</div>
                     </div>
-                    <div class="flex-1 space-y-6">
-                        <h2 class="text-2xl font-bold text-pink-700">白石川千櫻公園 - 櫻花與雪山的交響曲 <span class="ml-4 text-sm font-normal text-slate-400">4-15°C ☀️</span></h2>
-                        <div class="bg-white/80 p-4 rounded-xl border border-pink-200 text-sm leading-loose">
-                            <p class="font-bold text-pink-600 mb-2"><i class="fas fa-clock mr-2"></i>時間點與交通（嚴格依據檔案）：</p>
-                            <p>● <span class="font-bold">07:30</span> 準備出發，建議攜帶野餐墊。</p>
-                            <p>● <span class="font-bold">08:09</span> 仙台站搭乘 JR 東北本線 (普通白石行) ➜ <span class="font-bold">09:06</span> 船岡站。</p>
-                            <p>● <span class="font-bold">路線</span>：船岡站 ➜ 船岡城址公園 (斜行單軌車) ➜ 千櫻橋 ➜ 白石川堤 (一目千本櫻) ➜ 步行至大河原站。</p>
-                            <p>● <span class="font-bold">中餐</span>：市集攤販、賞櫻便當 (限定 11:00 - 13:30)。</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-slate-50 rounded-2xl">
+                        <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Morning</p>
+                        <p class="font-bold text-lg mb-1 italic">吃飯店早餐</p>
+                        <p class="text-sm">10:00 前往仙台大觀音 (公車約 40min)。震撼的白色巨像必拍。</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl">
+                        <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Afternoon</p>
+                        <p class="font-bold text-lg mb-1 italic">大崎八幡宮</p>
+                        <p class="text-sm">參拜國寶級黑漆金箔建築。隨後返回名掛丁商店街逛逛。</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-2xl">
+                        <p class="text-xs font-bold text-slate-400 mb-2 uppercase">Evening</p>
+                        <p class="font-bold text-lg mb-1 italic">榴岡公園櫻花祭</p>
+                        <p class="text-sm font-medium text-pink-600">夜櫻首航！檔案標註：榴岡公園垂櫻非常壯觀。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="D3" class="p-8 bg-white rounded-[2rem] border shadow-md">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-slate-800">Day 3 <span class="text-xl font-normal text-slate-400 ml-2">4/6 (Mon)</span></h2>
+                    <div class="text-right text-2xl font-bold">4° / 15° ☀️</div>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4 bg-orange-50 p-4 rounded-xl border border-orange-100">
+                        <i class="fas fa-shopping-basket text-orange-500"></i>
+                        <p class="text-sm font-bold">早餐推薦：仙台朝市 (當地的菜市場)，吃新鮮海鮮丼！</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-6 border rounded-2xl">
+                            <h4 class="font-bold mb-3"><i class="fas fa-bus mr-2 text-blue-500"></i> 上午行程</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                搭公車往 <span class="font-bold">仙台城跡</span> (青葉城)。參拜伊達政宗像，眺望整個仙台市區。隨後步行至 <span class="font-bold text-pink-500">千葉山公園、仙台市博物館</span>。
+                            </p>
+                        </div>
+                        <div class="p-6 border rounded-2xl">
+                            <h4 class="font-bold mb-3"><i class="fas fa-camera mr-2 text-pink-500"></i> 下午行程</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                <span class="font-bold">西公園 & 櫻崗大神宮</span>。這裡是仙台市民最愛的賞櫻點。晚上推薦去「武屋食堂」吃炸牡蠣 (開到 22:00)。
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="D7" class="day-card bg-orange-50/50 p-8 rounded-3xl border border-orange-100 shadow-sm">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-32 text-orange-500">
-                        <span class="text-5xl font-black">10</span>
-                        <p class="font-bold">FRI / APR</p>
-                    </div>
-                    <div class="flex-1 space-y-6">
-                        <h2 class="text-2xl font-bold text-orange-700">藏王狐狸村深度遊 <span class="ml-4 text-sm font-normal text-slate-400">2-10°C ❄️ (山區較冷)</span></h2>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-white p-4 rounded-xl border border-orange-200">
-                                <p class="text-xs font-bold text-orange-600">去程攻略</p>
-                                <p class="text-sm">07:25 或 07:45 搭乘 JR 東北本線至 <span class="font-bold text-red-500">JR 白石站</span>。</p>
-                                <p class="text-sm mt-1">轉計程車 (約 5000 日圓/趟)，可請 1F 遊客中心代叫。</p>
-                            </div>
-                            <div class="bg-white p-4 rounded-xl border border-orange-200">
-                                <p class="text-xs font-bold text-orange-600">園內重點</p>
-                                <p class="text-sm">● 入場費 1500 (僅收現金)。</p>
-                                <p class="text-sm">● <span class="font-bold text-red-500 underline">11:00 限量抱狐狸 (700日圓)</span>。</p>
-                                <p class="text-sm">● 離開：請櫃檯代叫計程車回車站。</p>
-                            </div>
-                        </div>
-                    </div>
+            <section id="D4" class="p-8 bg-white rounded-[2rem] border shadow-md">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-slate-800">Day 4 <span class="text-xl font-normal text-slate-400 ml-2">4/7 (Tue)</span></h2>
+                    <div class="text-right text-2xl font-bold">6° / 12° ☁️</div>
                 </div>
+                <div class="bg-indigo-900 text-white p-6 rounded-2xl mb-6 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs opacity-70">預約提醒</p>
+                        <p class="text-xl font-bold">12:00 Kotora 仔虎燒肉 🥩</p>
+                    </div>
+                    <i class="fas fa-fire-alt text-4xl text-orange-400"></i>
+                </div>
+                <p class="text-sm text-slate-600 mb-6">餐後漫步：<span class="font-bold">定禪寺通、錦町公園</span>。檔案備註：要帶野餐墊坐著嗎？</p>
             </section>
 
-            <section id="D8" class="day-card bg-indigo-50/50 p-8 rounded-3xl border border-indigo-100 shadow-sm">
-                <div class="flex flex-col md:flex-row gap-8">
-                    <div class="md:w-32 text-indigo-500">
-                        <span class="text-5xl font-black">11</span>
-                        <p class="font-bold">SAT / APR</p>
+            <section id="D5" class="p-8 bg-pink-50 rounded-[2rem] border-2 border-pink-200 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10"><i class="fas fa-seedling text-9xl"></i></div>
+                <div class="relative z-10">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h2 class="text-4xl font-black text-pink-700">Day 5 <span class="text-xl font-normal text-pink-400 ml-2">4/8 (Wed)</span></h2>
+                            <p class="text-pink-600 font-bold text-lg mt-1 tracking-widest italic">「一目千本櫻」- 震撼之旅</p>
+                        </div>
+                        <div class="text-right text-2xl font-bold text-pink-600">5° / 16° ☀️</div>
                     </div>
-                    <div class="flex-1 space-y-6">
-                        <h2 class="text-2xl font-bold text-indigo-700">鯛魚拉麵與秋保溫泉旅館 <span class="ml-4 text-sm font-normal text-slate-400">6-14°C 🌧️</span></h2>
+                    <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <div class="bg-white p-4 rounded-xl border border-yellow-200">
-                                <p class="font-bold">🔥 絕對重點：Ramen Rakura Hitoshina</p>
-                                <p class="text-sm text-slate-600 italic">"只開四天、每天四小時" 的夢幻鯛魚拉麵。</p>
-                                <p class="text-sm mt-1 font-bold">09:30 退房步行 3 分鐘去排隊 ➜ 10:00 開門首沖。</p>
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-pink-100">
+                                <p class="text-xs font-black text-pink-500 uppercase">出發時刻</p>
+                                <p class="text-lg font-bold">08:09 東北本線 ➜ 09:06 船岡站</p>
+                                <p class="text-xs text-slate-500 mt-1 italic font-medium">※ 檔案備註：今天要早出門 07:30</p>
                             </div>
-                            <div class="bg-blue-600 text-white p-4 rounded-xl">
-                                <p class="font-bold">下午：秋保大瀑布 ➜ 入住 Akiu Grand Hotel</p>
-                                <p class="text-sm opacity-80">在溫泉飯店徹底放鬆，隔日 10:30 有預約接駁車回仙台站。</p>
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-pink-100">
+                                <p class="text-xs font-black text-pink-500 uppercase">攻略路徑</p>
+                                <p class="text-sm leading-loose">
+                                    船岡站前站 ➜ 船岡城址公園 ➜ <span class="font-bold text-pink-600">千櫻橋 (必拍)</span> ➜ 白石川千櫻公園 ➜ JR 大河原站回程。
+                                </p>
                             </div>
+                        </div>
+                        <div class="bg-pink-100/50 p-6 rounded-2xl border border-pink-200">
+                            <h4 class="font-bold text-pink-700 mb-3"><i class="fas fa-utensils mr-2"></i> 野餐與市集</h4>
+                            <p class="text-xs text-pink-800 leading-relaxed mb-3">
+                                11:00 - 13:30 現場有市集攤販與賞櫻便當。建議買一份在櫻花樹下享用，這就是最高等級的浪漫。
+                            </p>
+                            <span class="inline-block bg-pink-500 text-white text-[10px] px-2 py-1 rounded">不可錯過的年度盛事</span>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <section id="D6" class="p-8 bg-sky-50 rounded-[2rem] border-2 border-sky-200 shadow-md">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-blue-700">Day 6 <span class="text-xl font-normal text-blue-400 ml-2">4/9 (Thu)</span></h2>
+                    <div class="text-right text-2xl font-bold text-blue-600">7° / 13° 🌬️</div>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <span class="text-blue-500 font-bold text-xs">08:55</span>
+                        <p class="font-bold mt-2">出發松島</p>
+                        <p class="text-xs text-slate-500">JR 仙石線往松島海岸。抵達後前往魚市場，甚至可以體驗「烤牡蠣」。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <span class="text-blue-500 font-bold text-xs">11:00 / 12:00</span>
+                        <p class="font-bold mt-2">松島遊船 (1HR)</p>
+                        <p class="text-xs text-slate-500">欣賞日本三景之一。隨後參訪瑞巖寺、伊達政宗博物館。</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm">
+                        <span class="text-blue-500 font-bold text-xs">15:00</span>
+                        <p class="font-bold mt-2">福浦島登島</p>
+                        <p class="text-xs text-slate-500">步行紅橋。注意：先到 Cafe Bayland 購買通行券。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="D7" class="p-8 bg-orange-50 rounded-[2rem] border-2 border-orange-200 shadow-xl">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-orange-700">Day 7 <span class="text-xl font-normal text-orange-400 ml-2">4/10 (Fri)</span></h2>
+                    <div class="text-right text-2xl font-bold text-orange-600">3° / 11° ❄️</div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-orange-100 space-y-8">
+                    <div class="flex items-center space-x-6">
+                        <div class="bg-orange-600 text-white w-20 h-20 rounded-2xl flex flex-col items-center justify-center">
+                            <span class="text-xs">TIME</span><span class="text-xl font-bold">07:25</span>
+                        </div>
+                        <div>
+                            <p class="text-xl font-bold">搭乘 JR 東北本線往白石站</p>
+                            <p class="text-sm text-slate-500">檔案提示：09:00 前抵達白石站，轉計程車前往狐狸村 (約 5000 羊)。</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8 py-6 border-y border-orange-50">
+                        <div>
+                            <h4 class="font-bold text-orange-800 mb-2 underline decoration-orange-300 decoration-4">絕對要守時</h4>
+                            <p class="text-sm font-bold text-red-600">11:00 限量抱狐狸 (700 羊)</p>
+                            <p class="text-xs text-slate-600 mt-2 italic font-medium">※ 限量是殘酷的，現場門票 1500 羊只收現金。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-orange-800 mb-2">下午回程備註</h4>
+                            <p class="text-sm">請狐狸村櫃台代叫計程車回車站。回仙台後去逛「仙台手作工藝市集」。</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl italic text-xs text-slate-500">
+                        晚餐推薦：魚販開的 Kuidokoro Aizawa 生魚/炸牡蠣。
+                    </div>
+                </div>
+            </section>
+
+            <section id="D8" class="p-8 bg-blue-50 rounded-[2rem] border-2 border-blue-200 shadow-xl">
+                <div class="flex justify-between items-start mb-8">
+                    <h2 class="text-4xl font-black text-blue-800">Day 8 <span class="text-xl font-normal text-blue-400 ml-2">4/11 (Sat)</span></h2>
+                    <div class="text-right text-2xl font-bold text-blue-600">6° / 14° 🌧️</div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-yellow-400 p-6 rounded-2xl flex items-center shadow-lg transform -rotate-1">
+                        <i class="fas fa-star text-white text-3xl mr-6 animate-pulse"></i>
+                        <div>
+                            <p class="font-black text-slate-900 italic">必吃！Ramen Rakura Hitoshina 鯛魚拉麵</p>
+                            <p class="text-xs font-bold text-slate-800 mt-1 underline">攻略：09:30 退房步行 3 分鐘去排隊 (10:00 開門)。只有這幾天開！</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-white p-6 rounded-2xl border border-blue-100">
+                            <h4 class="font-bold text-blue-600 mb-2">下午：移動至秋保</h4>
+                            <p class="text-sm">搭車前往秋保大瀑布、秋保神社。洗滌連日來的旅行疲憊。</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl border border-blue-100">
+                            <h4 class="font-bold text-blue-600 mb-2">宿泊：Akiu Grand Hotel</h4>
+                            <p class="text-sm font-bold">溫泉與懷石晚宴。</p>
+                            <p class="text-xs text-slate-500 mt-1 italic">享受最後一個在日本的放鬆夜晚。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="D9" class="p-8 bg-slate-900 text-white rounded-[2rem] border-2 shadow-xl">
+                <div class="flex justify-between items-start mb-8 border-b border-slate-700 pb-6">
+                    <h2 class="text-4xl font-black">Day 9 <span class="text-xl font-normal opacity-40 ml-2">4/12 (Sun)</span></h2>
+                    <div class="text-right text-2xl font-bold">8° / 18° ☀️</div>
+                </div>
+                <div class="space-y-6 text-slate-300">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-xs font-bold uppercase opacity-50 mb-2">Morning Routine</p>
+                            <p class="text-sm mb-2">06:45 - 09:00 享用飯店早餐。10:30 搭乘飯店接駁車回仙台站。</p>
+                            <p class="text-sm">最後衝刺：仙台車站觀光與伴手禮補貨。</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                            <p class="text-xs font-bold uppercase opacity-50 mb-2">Return Flight</p>
+                            <p class="text-lg font-bold text-white mb-1">13:50 搭乘 JR 前往機場</p>
+                            <p class="text-xs">預計 14:20 抵達機場辦理登機。返台航班 JX863 17:20 出發。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
 
-        <section id="Shopping" class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t">
-            <div class="bg-white p-8 rounded-3xl shadow-sm border">
-                <h3 class="serif text-2xl mb-6 text-slate-800"><i class="fas fa-shopping-bag mr-3 text-pink-400"></i>仙台站購物攻略</h3>
-                <div class="space-y-4 text-sm">
-                    <div class="flex justify-between border-b pb-2"><span>S-PAL 本館 3F</span><span class="font-bold text-slate-500">Honeys / 拉拉熊 / DHC</span></div>
-                    <div class="flex justify-between border-b pb-2"><span>S-PAL 東館 4F</span><span class="font-bold text-slate-500">HANDS / THE NORTH FACE</span></div>
-                    <div class="flex justify-between border-b pb-2"><span>PARCO 3F</span><span class="font-bold text-pink-600 underline">Pokemon Center</span></div>
-                    <div class="flex justify-between border-b pb-2"><span>有都八喜 2F</span><span class="font-bold text-indigo-500">Pikmin 專區</span></div>
-                    <div class="flex justify-between border-b pb-2"><span>AER 3F</span><span class="font-bold text-slate-500">Uniqlo (超大店)</span></div>
+        <section id="Shopping" class="mt-24 pt-12 border-t-4 border-slate-200">
+            <h3 class="serif text-4xl mb-12 text-slate-800 text-center tracking-widest uppercase italic">購物地圖完全攻略</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-pink-100 hover:shadow-2xl transition-all">
+                    <h4 class="font-bold text-xl mb-6 flex items-center text-pink-500"><i class="fas fa-shopping-cart mr-2"></i> S-PAL 仙台站</h4>
+                    <ul class="space-y-4 text-sm leading-relaxed">
+                        <li class="border-b pb-2"><span class="font-bold">本館 3F</span>: Honeys / 拉拉熊 / DHC</li>
+                        <li class="border-b pb-2"><span class="font-bold">本館 1F</span>: 無印良品 / graniph</li>
+                        <li class="border-b pb-2"><span class="font-bold">東館 4F</span>: HANDS / 北臉 (TNF)</li>
+                        <li class="pb-2 text-pink-600 font-bold">伴手禮: 本館 B1 + 東館 2F</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border">
-                <h3 class="serif text-2xl mb-6 text-slate-800"><i class="fas fa-utensils mr-3 text-orange-400"></i>美食備忘錄</h3>
-                <div class="space-y-3">
-                    <div class="p-3 bg-orange-50 rounded-lg">
-                        <p class="font-bold text-sm">齊藤熟食店 (10:00-17:00)</p>
-                        <p class="text-xs text-orange-600">必買：蟹肉奶油可樂餅</p>
-                    </div>
-                    <div class="p-3 bg-blue-50 rounded-lg">
-                        <p class="font-bold text-sm">武屋食堂 (至 22:00)</p>
-                        <p class="text-xs text-blue-600">強烈推薦：炸牡蠣套餐</p>
-                    </div>
-                    <div class="p-3 bg-green-50 rounded-lg">
-                        <p class="font-bold text-sm">おにぎり處 あみ (06:00-12:00)</p>
-                        <p class="text-xs text-green-600">仙台站必買日式飯糰</p>
+                <div class="bg-white p-8 rounded-3xl shadow-lg border border-indigo-100 hover:shadow-2xl transition-all">
+                    <h4 class="font-bold text-xl mb-6 flex items-center text-indigo-500"><i class="fas fa-gamepad mr-2"></i> 遊戲與潮牌</h4>
+                    <ul class="space-y-4 text-sm leading-relaxed">
+                        <li class="border-b pb-2"><span class="font-bold text-red-500">PARCO 3F</span>: 寶可夢中心 (Pokemon)</li>
+                        <li class="border-b pb-2"><span class="font-bold text-blue-500">有都八喜 2F</span>: 皮克敏專區 (Pikmin)</li>
+                        <li class="border-b pb-2"><span class="font-bold text-slate-500 underline">AER 3F</span>: 超大間 Uniqlo</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all">
+                    <h4 class="font-bold text-xl mb-6 flex items-center text-yellow-400"><i class="fas fa-lightbulb mr-2"></i> 快速提醒</h4>
+                    <p class="text-xs opacity-70 leading-loose mb-4 italic">
+                        記得善用「仙台站 2F」的綜合詢問處，有任何交通問題都可以在那邊解決。另外，牛舌街(3F) 的排隊時間通常至少 30 分鐘，建議錯開用餐尖峰。
+                    </p>
+                    <div class="text-[10px] bg-white/10 p-3 rounded-lg border border-white/5">
+                        * 購物資訊參考自 20260404-0412仙台.xlsx
                     </div>
                 </div>
             </div>
@@ -195,9 +331,12 @@
 
     </main>
 
-    <footer class="bg-slate-900 text-white py-20 text-center">
-        <p class="serif text-xl opacity-80 italic">Have a Wonderful Trip to Sendai, Jack!</p>
-        <p class="text-[10px] mt-4 opacity-30 tracking-[0.2em]">© 2026 AI TRAVEL CONSULTANT | DATA SYNCED FROM UPLOADED FILES</p>
+    <footer class="bg-slate-950 text-white py-24 text-center border-t border-slate-800">
+        <div class="max-w-xl mx-auto px-4">
+            <i class="fas fa-cherry-blossom text-pink-500 text-4xl mb-6"></i>
+            <p class="serif text-2xl italic mb-4">"櫻花、牛舌與溫泉，這就是仙台的浪漫。"</p>
+            <p class="text-[10px] opacity-30 tracking-[0.5em] font-light">JACK'S TRAVEL DASHBOARD | VERSION 2.0 (FINAL BEYOND THE SKY)</p>
+        </div>
     </footer>
 
 </body>
